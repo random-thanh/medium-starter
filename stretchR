@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<!-- keep the line below for OpenProcessing compatibility -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>   
+	<script>
+  let img;
+  let pos = 25;
+  let cnv;
+  let rCol = 150;
+  let borderCol = 'black';
+
+  function preload() {
+    img = loadImage('R for Random.png');
+  }
+
+  function setup() {
+   cnv = createCanvas(windowWidth, windowHeight);
+  }
+
+  function draw() {
+    background('white');
+    //rotate(PI / pos);
+    imageMode(CENTER);
+	  //translate(width / 2, height / 2);
+    image(img, width/2, height/2, 150, rCol);	
+	  if (mouseX > width/2-200 && mouseX < width/2+200 && mouseY > height/2-200 && mouseY < height/2+200) {
+      changeCol();
+		  console.log('inside')
+		  console.log('x:'+ mouseX)
+		  console.log('y:'+ mouseY)
+    } else {
+      rCol = 150;
+		  borderCol = 200
+		  console.log('outside')
+		  console.log('x:'+ mouseX)
+		  console.log('y:'+ mouseY)
+    }
+	  stroke(borderCol);
+	  rectMode(CENTER);
+	  noFill()
+	  rect(width/2,height/2,400,400)
+  }
+
+  function changeCol() {
+	  rCol = 400;
+	  borderCol = 0
+  }
+
+
+  </script>
+</body>
+
+</html>
