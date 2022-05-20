@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <title>Document</title>
 </head>
-
 <body>
-<p>hallo</p>
-  <style>
-  html,
-	body {
-		margin: 0;
-		padding: 0;
-	}
-  </style>
-</body>
+    <script>
+        let img;
+        let pos = 25;
+        let cnv;
+        let rCol = 150;
+        let borderCol = 'black';
 
+        function preload() {
+        img = loadImage('https://ucff185fcaaefcf32c7f9cd2b9e5.dl.dropboxusercontent.com/cd/0/inline/BlmSlk4yMo6bIZMvC6BbdMCTSMesjkLXdBrC4jI-9_ykXzYJD1TrXQ4zgjCYqwH-p8FEdXj-1b_xTKCAV6tBxr9NLxChOjUD40xND9X3JBOmkamxxMVjyWUfe88CnZ1kpPZpdKVK-NHntu6R3nH70i1663F2wCgar8_8Sajbjps04Q/file#');
+        }
+
+        function setup() {
+        cnv = createCanvas(windowWidth, windowHeight);
+        }
+
+        function draw() {
+        background('white');
+        imageMode(CENTER);
+        image(img, width/2, height/2, 150, rCol);	
+            if (mouseX > width/2-200 && mouseX < width/2+200 && mouseY > height/2-200 && mouseY < height/2+200) {
+            changeCol();
+                console.log('inside')
+                console.log('x:'+ mouseX)
+                console.log('y:'+ mouseY)
+        } else {
+            rCol = 150;
+                borderCol = 200
+                console.log('outside')
+                console.log('x:'+ mouseX)
+                console.log('y:'+ mouseY)
+        }
+            stroke(borderCol);
+            rectMode(CENTER);
+            noFill()
+            rect(width/2,height/2,400,400)
+        }
+
+        function changeCol() {
+            rCol = 400;
+            borderCol = 0
+        }
+    </script>
+</body>
 </html>
